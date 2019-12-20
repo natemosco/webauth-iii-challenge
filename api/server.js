@@ -10,7 +10,7 @@ const globalMiddleware = [helmet(), cors(), express.json()];
 const server = express();
 server.use(globalMiddleware);
 server.use("/api/auth", authRouter);
-server.use("./api/users", usersRouter);
+server.use("/api/users", usersRouter);
 server.get("/", (req, res) => {
   res.send("server is up and running.");
 });

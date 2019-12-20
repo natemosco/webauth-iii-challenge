@@ -11,7 +11,7 @@ router.post("/register", (req, res) => {
 
   Users.add(user)
     .then(newUser => {
-      //console.log(newUser, 'response from post /register');
+      console.log(newUser, "response from post /register");
       res.status(201).json(newUser);
     })
     .catch(error => {
@@ -48,7 +48,7 @@ function signToken(user) {
   const payload = {
     username: user.username
   };
-  const secret = process.env.JWT_SECRET || TOKEN_SECRET;
+  const secret = process.env.JWT_SECRET || process.env.TOKEN_SECRET;
 
   const options = {
     expiresIn: "1h"
